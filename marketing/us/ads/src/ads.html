@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Pinyon+Script&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* EssayForge US — "1776 broadside" kit (same tokens as src/components/estadoVsEstado/Colonial.jsx)
+     mixed with 2016–2018 social-ad grammar: bold caption bar, one big promise, emoji, "tag a friend". */
+  :root {
+    --papel: #F2E6C9; --papel-claro: #F8EFD9; --papel-escuro: #E3CFA3;
+    --tinta: #2B1D10; --tinta-suave: rgba(43,29,16,.78); --fio: rgba(43,29,16,.35);
+    --lacre: #8E1B1B; --lacre-escuro: #651111; --azul: #1C2B4A; --ouro: #C9A24A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #777; font-family: 'IM Fell English', Georgia, serif; color: var(--tinta); }
+  .ad { position: relative; overflow: hidden; margin: 40px; }
+  .sq { width: 1080px; height: 1080px; }
+  .pt { width: 1080px; height: 1350px; }
+  .st { width: 1080px; height: 1920px; }
+  .pergaminho {
+    background-color: var(--papel);
+    background-image:
+      radial-gradient(ellipse at 50% 38%, rgba(255,250,236,.65), transparent 62%),
+      radial-gradient(ellipse at 0% 0%, rgba(120,78,28,.30), transparent 42%),
+      radial-gradient(ellipse at 100% 100%, rgba(120,78,28,.32), transparent 44%),
+      radial-gradient(ellipse at 100% 0%, rgba(120,78,28,.20), transparent 38%),
+      radial-gradient(ellipse at 0% 100%, rgba(120,78,28,.22), transparent 38%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.33 0 0 0 0 0.22 0 0 0 0 0.09 0 0 0 0.14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .moldura { position: absolute; inset: 34px; border: 2px solid var(--fio); box-shadow: inset 0 0 0 8px transparent, inset 0 0 0 10px var(--fio); pointer-events: none; }
+  /* 2017 caption bar */
+  .barra { background: var(--lacre); color: #fff; font-family: 'Oswald', Impact, sans-serif; font-weight: 700;
+           text-transform: uppercase; letter-spacing: .02em; text-align: center; }
+  .gotica { font-family: 'UnifrakturMaguntia', serif; font-weight: 400; line-height: .95; }
+  .sc { font-family: 'IM Fell English SC', serif; letter-spacing: .12em; }
+  .script { font-family: 'Pinyon Script', cursive; }
+  .fio { display: flex; align-items: center; gap: 18px; color: var(--tinta-suave); font-size: 34px; }
+  .fio::before, .fio::after { content: ""; flex: 1; border-top: 2px solid var(--fio); border-bottom: 2px solid var(--fio); height: 4px; }
+  .centro { text-align: center; }
+  .selo { position: absolute; width: 230px; height: 230px; border-radius: 50%;
+          background: radial-gradient(circle at 38% 32%, #b23a2e, var(--lacre) 45%, var(--lacre-escuro) 100%);
+          box-shadow: 0 8px 18px rgba(60,10,10,.45), inset 0 -8px 16px rgba(0,0,0,.25);
+          display: flex; align-items: center; justify-content: center; text-align: center;
+          color: #f6dcc0; font-family: 'IM Fell English SC', serif; font-size: 27px; line-height: 1.05; letter-spacing: .06em; transform: rotate(-12deg); }
+  .selo::before { content: ""; position: absolute; inset: 16px; border-radius: 50%; border: 2px dashed rgba(246,220,192,.55); }
+  .estrelas { position: relative; width: 150px; height: 150px; margin: 0 auto; }
+  .estrelas span { position: absolute; left: 50%; top: 50%; font-size: 24px; color: var(--azul); }
+  .marca { font-family: 'IM Fell English', serif; font-size: 34px; }
+  .marca i { color: var(--lacre); }
+  .lista { list-style: none; }
+  .lista li { display: grid; grid-template-columns: 128px 1fr; align-items: baseline; }
+  .lista > li > b { font-family: 'UnifrakturMaguntia', serif; font-weight: 400; color: var(--lacre); }
+  s.lapis { text-decoration: none; position: relative; color: rgba(43,29,16,.55); }
+  s.lapis::after { content: ""; position: absolute; left: -4px; right: -4px; top: 52%; height: 5px; background: var(--lacre); transform: rotate(-2deg); border-radius: 3px; }
+  .lista-grande li { grid-template-columns: 160px 1fr; }
+</style>
+</head>
+<body>
+
+<!-- ═══ AD 1 — State vs. State (square, feed) ═══ -->
+<section id="ad1" class="ad sq pergaminho">
+  <div class="barra" style="font-size:50px;padding:26px 30px 22px;">👇 Tag a friend from your state 👇</div>
+  <div class="moldura" style="top:150px;"></div>
+  <div style="padding:70px 110px 0;" class="centro">
+    <p class="sc" style="font-size:28px;color:var(--tinta-suave);">In Congress of the Fifty States · Fall 2026</p>
+    <div class="fio" style="margin:20px 0 10px;">❦</div>
+    <h1 class="gotica" style="font-size:140px;margin:6px 0 4px;">The State<br>vs. State</h1>
+    <p style="font-size:38px;font-style:italic;margin:16px 0 26px;">A weekly college-essay championship.<br>All 50 states. Most don't know it yet.</p>
+    <ul class="lista" style="text-align:left;font-size:32px;line-height:1.28;max-width:800px;margin:0 auto;">
+      <li><b style="font-size:48px;">I.</b><span>Write any US essay — Common App, a supplement, a UC PIQ.</span></li>
+      <li style="margin-top:10px;"><b style="font-size:48px;">II.</b><span>Your best score of the week counts for your state.</span></li>
+      <li style="margin-top:10px;"><b style="font-size:48px;">III.</b><span>Every Monday: reset. New week. New champion.</span></li>
+    </ul>
+  </div>
+  <div class="selo" style="right:28px;top:118px;width:190px;height:190px;font-size:23px;">DEFEND<br>YOUR<br>STATE</div>
+  <div style="position:absolute;left:0;right:0;bottom:62px;" class="centro">
+    <p class="marca">Essay<i>Forge</i> &nbsp;·&nbsp; <span style="font-size:30px;">Link in bio</span></p>
+  </div>
+</section>
+
+<!-- ═══ AD 2 — Hear ye: deadline (4:5, feed) ═══ -->
+<section id="ad2" class="ad pt pergaminho">
+  <div class="barra" style="font-size:54px;padding:28px 30px 24px;">⏰ Early Decision is Nov 1 ⏰</div>
+  <div class="moldura" style="top:156px;"></div>
+  <div style="padding:60px 110px 0;" class="centro">
+    <h1 class="gotica" style="font-size:170px;color:var(--lacre);">Hear ye!</h1>
+    <p class="sc" style="font-size:32px;margin-top:6px;">A proclamation to the Class of 2027</p>
+    <div class="fio" style="margin:22px 0;">❦</div>
+    <p style="font-size:44px;line-height:1.3;">Your essay gets <b>a few minutes</b><br>with an admissions reader.</p>
+    <p style="font-size:44px;line-height:1.3;margin-top:22px;">Most lose them in the<br><b>first sentence:</b></p>
+    <p style="font-size:46px;font-style:italic;margin:26px 0 0;"><s class="lapis">“Ever since I was young…”</s></p>
+    <p class="script" style="font-size:78px;color:var(--lacre);margin-top:18px;transform:rotate(-3deg);">Start in a moment instead.</p>
+    <div class="fio" style="margin:24px 0 18px;">✦</div>
+    <p style="font-size:40px;">Paste your first paragraph.<br><b>See what's costing you — in seconds, free.</b></p>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:58px;" class="centro">
+    <p class="marca" style="font-size:38px;">Essay<i>Forge</i> — Your voice, sharpened.</p>
+    <p class="sc" style="font-size:26px;margin-top:8px;color:var(--tinta-suave);">Link in bio · No account needed</p>
+  </div>
+</section>
+
+<!-- ═══ AD 3 — TikTok / Reels cover (9:16) — safe zone respected ═══ -->
+<section id="ad3" class="ad st pergaminho">
+  <div class="moldura"></div>
+  <div style="padding:250px 90px 0;" class="centro">
+    <div class="barra" style="display:inline-block;font-size:56px;padding:18px 34px 14px;transform:rotate(-2deg);">POV: you're the admissions reader</div>
+    <h1 class="gotica" style="font-size:170px;margin:70px 0 10px;">We, the<br>Readers…</h1>
+    <p style="font-size:50px;font-style:italic;">hold these truths to be self-evident:</p>
+    <div class="fio" style="margin:46px 0;">❦</div>
+    <ul class="lista lista-grande" style="text-align:left;font-size:50px;line-height:1.25;">
+      <li><b style="font-size:66px;">I.</b><span>“Ever since I was young” = skim.</span></li>
+      <li style="margin-top:26px;"><b style="font-size:66px;">II.</b><span>Tell us less. <b>Show us the garage.</b></span></li>
+      <li style="margin-top:26px;"><b style="font-size:66px;">III.</b><span>651 words? The box stops at 650.</span></li>
+    </ul>
+  <div style="margin-top:70px;display:flex;align-items:center;justify-content:center;gap:50px;">
+    <div class="selo" style="position:relative;width:230px;height:230px;font-size:29px;">FREE<br>FIRST<br>READ</div>
+    <div style="text-align:left;">
+      <p class="marca" style="font-size:52px;">Essay<i>Forge</i></p>
+      <p class="sc" style="font-size:32px;margin-top:8px;">Comment “ESSAY” 👇</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+</body>
+</html>
